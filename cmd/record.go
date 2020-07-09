@@ -5,6 +5,7 @@ import (
 	"encoding/binary"
 	"fmt"
 	"os"
+	"os/exec"
 	"os/signal"
 	"syscall"
 	"time"
@@ -194,6 +195,15 @@ recording:
 			numSamples += len(in)
 		}
 	}
+
+	flog.Info("recording stopped")
+	play := exec.Command("ffplay", cmd.outFile)
+	if err := play.Start(); err != nil {
+		flog.Error("failed to playback %s : %v", cmd.outFile, err)
+		fl.Usage()
+		return
+	}
+	flog.Info("playing %s", cmd.outFile)
 }
 
 func writeFormChunk(f *os.File) error {
