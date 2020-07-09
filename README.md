@@ -2,7 +2,7 @@
 
 Record microphone audio from the command line.
 
-`Only for OXS systems at the moment.`
+`Only for OSX systems at the moment.`
 
 
 ## Requirements
