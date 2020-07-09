@@ -24,6 +24,6 @@ func (r *Root) Spec() cli.CommandSpec {
 // Subcommands returns a set of any existing child-commands.
 func (r *Root) Subcommands() []cli.Command {
 	return []cli.Command{
-		//TODO : add sub-commands.
+		&recordCmd{},
 	}
 }
